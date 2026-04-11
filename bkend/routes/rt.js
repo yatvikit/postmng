@@ -1,6 +1,11 @@
 let express=require("express")
 const { login, reg } = require("../controllers/usercont")
+const { addpost, all, postbyid, postbycat } = require("../controllers/postcont")
 let rt=new express.Router()
 rt.post("/login",login)
 rt.post("/reg",reg)
+rt.post("/addpost",addpost)
+rt.get("/all",all)
+rt.get("/postbyid/:pid",postbyid)
+rt.get("/postbycat/:cat",postbycat)
 module.exports=rt
