@@ -10,9 +10,27 @@ import './App.css'
 import All from './comp/All'
 import Catpost from './comp/Catpost'
 import Postbyme from './comp/Postbyme'
+import { useEffect, useState } from 'react'
+import Ct from './comp/Ct'
+import Cookies from "js-cookie"
 const App = () => {
+  let [state,setState]=useState({"token":"","name":"","uid":"","role":""})
+  let updstate=(obj)=>{
+    setState({...state,...obj})
+
+  }
+  useEffect(()=>{
+    let x=Cookies.get("login")
+    if(x!=undefined)
+    {
+      updstate(JSON.parse(x))
+    }
+
+  },[])
+  let obj={"state":state,"updstate":updstate}
   return (
     <BrowserRouter>
+    <Ct.Provider value={obj}>
     <Nav/>
     <Routes>
       <Route path='/' element={<Home/>}>
@@ -26,6 +44,7 @@ const App = () => {
       <Route path="/addpost" element={<Addpost/>}/>
       <Route path='/admin' element={<Admin/>}/>
     </Routes>
+    </Ct.Provider>
     </BrowserRouter>
   )
 }
