@@ -16,7 +16,7 @@ let addpost=async(req,res)=>{
 let all=async(req,res)=>{
     try
     {
-        let data=await pm.find()
+        let data=await pm.find({"status":"accepted"})
         res.json(data)
 
     }
@@ -40,7 +40,7 @@ let postbyid=async(req,res)=>{
 let postbycat=async(req,res)=>{
      try
     {
-        let arr=await pm.find({"cat":req.params.cat})
+        let arr=await pm.find({"cat":req.params.cat,"status":"accepted"})
         res.json(arr)
     }
     catch

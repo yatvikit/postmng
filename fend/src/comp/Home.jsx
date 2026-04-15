@@ -16,9 +16,9 @@ const Home = () => {
 
         </div>
         <div className='main'>
-            <h1>dgjk dfkgkidf</h1>
+          
             <Outlet/>
-            <p>shdjfgjsdjg dfghdh</p>
+           
 
         </div>
 
