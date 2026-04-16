@@ -11,7 +11,7 @@ const All = () => {
   },[])
 
   return (
-    <div>
+    <>
       {data.length==0&&<h2>No Posts</h2>}
       {data.length>0&&<div className='con'>
         {
@@ -20,7 +20,11 @@ const All = () => {
               <h1>{post.title}</h1>
               <p>{post.desc}</p>
               <div className='postfooter'>
-                <div className='like'></div>
+                <div className='like'>
+                  <i class="fa-solid fa-thumbs-up"></i>
+                  <i class="fa-solid fa-thumbs-down"></i>
+
+                </div>
                 <div className='author'>
                   <p>{post.name}</p>
                   <p>{new Date(post.date).toLocaleDateString()}</p>
@@ -30,7 +34,7 @@ const All = () => {
           })
         }
         </div>}
-    </div>
+    </>
   )
 }
 

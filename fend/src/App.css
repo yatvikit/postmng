@@ -37,6 +37,8 @@ margin-left: 5px;
 }
 .main{
   width: 78%;
+  height: 90vh;
+  position: relative; 
 
 }
 .formcon{
@@ -71,3 +73,58 @@ margin-left: 5px;
     background: transparent;
     border-radius: 5px;
 }
+.con{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  scrollbar-width: none;
+}
+.post{
+  width: 100%;
+  margin-bottom: 10px;
+
+}
+.post h1{
+  background-color:orangered;
+  color:white;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 16px;
+}
+.post>p{
+  width: 100%;
+  background-color: antiquewhite;
+  color: darkred;
+  text-align: justify;
+  text-indent: 20px;
+}
+.postfooter{
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background:linear-gradient(to right,rgba(100,200,76,0.8),rgba(170,76,145,0.7));
+}
+.like{
+  font-size: 12px;
+  
+}
+.like .fa-thumbs-up{
+  color: rgb(113, 24, 151);
+  margin:0px 10px;
+
+}
+.like .fa-thumbs-down{
+  color: rgb(186, 112, 15);
+
+}
+.author{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: crimson;
+  text-transform: capitalize;
+}
+
