@@ -13,6 +13,7 @@ import Postbyme from './comp/Postbyme'
 import { useEffect, useState } from 'react'
 import Ct from './comp/Ct'
 import Cookies from "js-cookie"
+import Km from './comp/Km'
 const App = () => {
   let [state,setState]=useState({"token":"","name":"","uid":"","role":""})
   let updstate=(obj)=>{
@@ -43,6 +44,7 @@ const App = () => {
       <Route path="/logout" element={<Logout/>}/>
       <Route path="/addpost" element={<Addpost/>}/>
       <Route path='/admin' element={<Admin/>}/>
+      <Route path='/km/:id' element={<Km/>}/>
     </Routes>
     </Ct.Provider>
     </BrowserRouter>
