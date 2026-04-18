@@ -33,6 +33,7 @@ setF(!f)
               <td>{row.title}</td>
               <td>{row.status}</td>
               <td>{row.date.substr(0,10)}</td>
+              <td>{row.msg!=undefined?row.msg:""}</td>
               <td><button><Link to={`/km/${row._id}`}>KnowMore...</Link></button></td>
               <td><button onClick={()=>del(row._id)}>Delete</button></td>
             </tr>)
