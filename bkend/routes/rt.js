@@ -1,6 +1,6 @@
 let express=require("express")
 const { login, reg } = require("../controllers/usercont")
-const { addpost, all, postbyid, postbycat } = require("../controllers/postcont")
+const { addpost, all, postbyid, postbycat, getpostsbyuser } = require("../controllers/postcont")
 const { posts, delpost, accept, modify } = require("../controllers/adminpostcon")
 let rt=new express.Router()
 rt.post("/login",login)
@@ -13,4 +13,5 @@ rt.get("/posts",posts)
 rt.delete("/delpost/:id",delpost)
 rt.get("/accept/:id",accept)
 rt.put("/modify",modify)
+rt.get("/getpostsbyuser/:uid",getpostsbyuser)
 module.exports=rt

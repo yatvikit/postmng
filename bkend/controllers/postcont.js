@@ -49,4 +49,17 @@ let postbycat=async(req,res)=>{
     }
 }
 
-module.exports={addpost,all,postbycat,postbyid}
+let getpostsbyuser=async(req,res)=>{
+    try
+    {
+       let data=await pm.find({"uid":req.params.uid})
+       res.json(data)
+
+    }
+    catch
+    {
+        res.json({"msg":"error in fetching"})
+    }
+}
+
+module.exports={addpost,all,postbycat,postbyid,getpostsbyuser}

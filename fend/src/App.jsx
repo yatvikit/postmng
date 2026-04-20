@@ -14,6 +14,7 @@ import { useEffect, useState } from 'react'
 import Ct from './comp/Ct'
 import Cookies from "js-cookie"
 import Km from './comp/Km'
+import Editpost from './comp/Editpost'
 const App = () => {
   let [state,setState]=useState({"token":"","name":"","uid":"","role":""})
   let updstate=(obj)=>{
@@ -45,6 +46,7 @@ const App = () => {
       <Route path="/addpost" element={<Addpost/>}/>
       <Route path='/admin' element={<Admin/>}/>
       <Route path='/km/:id' element={<Km/>}/>
+      <Route path='/editpost/:pid' element={<Editpost/>}/>
     </Routes>
     </Ct.Provider>
     </BrowserRouter>
