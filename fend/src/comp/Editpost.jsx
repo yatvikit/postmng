@@ -1,11 +1,12 @@
 import axios from 'axios'
 import { useState } from 'react'
 import { useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 const Editpost = () => {
       let [data,setData]=useState({"title":"","desc":"","cat":""})
-      let [msg,setMsg]=useState("")
+  
+      let navigate=useNavigate()
       let fun=(e)=>{
         setData({...data,[e.target.name]:e.target.value})
       }
@@ -17,12 +18,15 @@ const Editpost = () => {
 
     },[])
     let edit=()=>{
+      axios.put("http://localhost:5000/updpost",{"_id":data._id,"title":data.title,"desc":data.desc,"cat":data.cat}).then((res)=>{
+        navigate("/postbyme")
+      })
 
     }
   return (
      <div className='formcon'>
       <div className='form'>
-        <h2 style={{"color":"red"}}>{msg}</h2>
+       
         <input type='text' placeholder='Enter title' name="title" value={data.title} onChange={fun}/>
         <textarea rows={5} cols={20} placeholder='Enter desc' onChange={fun} value={data.desc} name="desc"></textarea>
         <select value={data.cat} onChange={fun} name='cat'>

@@ -19,7 +19,7 @@ navigate("/admin")
       })
     }
     let modify=(pid)=>{
-      axios.put(`http://localhost:5000/modify`,{"_id":pid, NaN}).then(()=>{
+      axios.put(`http://localhost:5000/modify`,{"_id":pid,"msg":msg}).then(()=>{
 navigate("/admin")
       })
 
@@ -31,9 +31,9 @@ navigate("/admin")
               <p>{post.desc}</p>
               <div className='postfooter'>
                 <div className='like'>
-                {post.status=="pending"&&<button onClick={()=>accept(post._id)}>Accept</button>}
+                {post.status=="pendding"&&<button onClick={()=>accept(post._id)}>Accept</button>}
 
-                {post.status=="pending"&&<>
+                {post.status=="pendding"&&<>
                 <input type='text' placeholder='enter msg' onChange={(e)=>setMsg(e.target.value)} value={msg}/>
                 <button onClick={()=>modify(post._id)}>Modify</button></>}
 

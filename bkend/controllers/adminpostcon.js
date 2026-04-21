@@ -27,7 +27,7 @@ let delpost=async(req,res)=>{
 let accept=async(req,res)=>{
     try
     {
-        await pm.findByIdAndUpdate({"_id":req.params.id},{"status":"accepted"})
+        await pm.findByIdAndUpdate({"_id":req.params.id},{"status":"accepted","msg":""})
 
 res.json({"msg":"post accepted"})
     }
@@ -38,6 +38,7 @@ res.json({"msg":"post accepted"})
 let modify=async(req,res)=>{
     try
     {
+        console.log(req.body)
         await pm.findByIdAndUpdate({"_id":req.body._id},{"msg":req.body.msg,"status":"modify"})
 
 res.json({"msg":"post send for review"})

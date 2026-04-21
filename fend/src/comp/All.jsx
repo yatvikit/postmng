@@ -1,14 +1,45 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import Ct from './Ct'
 
 const All = () => {
   let [data,setData]=useState([])
+  let obj=useContext(Ct)
+  let [f,setF]=useState(true)
   useEffect(()=>{
     axios.get("http://localhost:5000/all").then((res)=>{
       setData(res.data)
     })
 
-  },[])
+  },[f])
+  let like=(pid)=>{
+    if(obj.state.uid=="")
+    {
+      alert("login to like")
+    }
+    else
+    {
+      axios.put("http://localhost:5000/like",{"_id":pid,"uid":obj.state.uid}).then(()=>{
+        setF(!f)
+
+      })
+    }
+  }
+
+   let dislike=(pid)=>{
+    if(obj.state.uid=="")
+    {
+      alert("login to dislike")
+    }
+    else
+    {
+      axios.put("http://localhost:5000/dislike",{"_id":pid,"uid":obj.state.uid}).then(()=>{
+        setF(!f)
+
+      })
+    }
+  }
+
 
   return (
     <>
@@ -21,8 +52,8 @@ const All = () => {
               <p>{post.desc}</p>
               <div className='postfooter'>
                 <div className='like'>
-                  <i class="fa-solid fa-thumbs-up"></i>
-                  <i class="fa-solid fa-thumbs-down"></i>
+                  <i class="fa-solid fa-thumbs-up" onClick={()=>like(post._id)}></i>{post.likes.length}
+                  <i class="fa-solid fa-thumbs-down" onClick={()=>dislike(post._id)}></i>{post.dislikes.length}
 
                 </div>
                 <div className='author'>

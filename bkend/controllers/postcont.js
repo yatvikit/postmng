@@ -61,5 +61,41 @@ let getpostsbyuser=async(req,res)=>{
         res.json({"msg":"error in fetching"})
     }
 }
+let updpost=async(req,res)=>{
+    try
+    {
+        await pm.findByIdAndUpdate({"_id":req.body._id},{...req.body,"status":"pendding"})
+        res.json({"msg":"updation done"})
 
-module.exports={addpost,all,postbycat,postbyid,getpostsbyuser}
+    }
+    catch
+    {
+        res.json({"msg":"error in updation"})
+    }
+}
+let like=async(req,res)=>{
+    try
+    {
+        await pm.findByIdAndUpdate({"_id":req.body._id},{$addToSet:{"likes":req.body.uid},$pull:{"dislikes":req.body.uid}})
+        res.json({"msg":"post liked"})
+
+    }
+    catch
+    {
+        res.json({"msg":"error in adding like"})
+    }
+}
+
+let dislike=async(req,res)=>{
+    try
+    {
+        await pm.findByIdAndUpdate({"_id":req.body._id},{$addToSet:{"dislikes":req.body.uid},$pull:{"likes":req.body.uid}})
+        res.json({"msg":"post disliked"})
+
+    }
+    catch
+    {
+        res.json({"msg":"error in adding like"})
+    }
+}
+module.exports={addpost,all,postbycat,postbyid,getpostsbyuser,updpost,like,dislike}
