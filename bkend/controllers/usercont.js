@@ -32,7 +32,7 @@ let login=async(req,res)=>{
             let f=await bcrypt.compare(req.body.pwd,obj.pwd)
             if(f)
             {
-                res.json({"token":jwt.sign({"_id":req.body._id},"1223"),"name":obj.name,"role":obj.role,"uid":obj._id})
+                res.json({"token":jwt.sign({"_id":req.body._id},process.env.pk),"name":obj.name,"role":obj.role,"uid":obj._id})
             }
             else
             {
