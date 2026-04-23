@@ -9,7 +9,7 @@ const Reg = () => {
     setData({...data,[e.target.name]:e.target.value})
   }
   let register=()=>{
-    axios.post("http://localhost:5000/reg",data).then((res)=>{
+    axios.post("https://postmng.onrender.com/reg",data).then((res)=>{
       setMsg(res.data.msg)
       if(res.data.msg=="reg done")
       {

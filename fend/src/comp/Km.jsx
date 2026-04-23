@@ -8,18 +8,18 @@ const Km = () => {
     let {id}=useParams()
     let navigate=useNavigate()
     useEffect(()=>{
-        axios.get(`http://localhost:5000/postbyid/${id}`).then((res)=>{
+        axios.get(`https://postmng.onrender.com/postbyid/${id}`).then((res)=>{
 setPost(res.data)
         })
 
     },[])
     let accept=(pid)=>{
-      axios.get(`http://localhost:5000/accept/${pid}`).then(()=>{
+      axios.get(`https://postmng.onrender.com/accept/${pid}`).then(()=>{
 navigate("/admin")
       })
     }
     let modify=(pid)=>{
-      axios.put(`http://localhost:5000/modify`,{"_id":pid,"msg":msg}).then(()=>{
+      axios.put(`https://postmng.onrender.com/modify`,{"_id":pid,"msg":msg}).then(()=>{
 navigate("/admin")
       })
 

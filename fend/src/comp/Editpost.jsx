@@ -12,13 +12,13 @@ const Editpost = () => {
       }
     let {pid}=useParams()
     useEffect(()=>{
-        axios.get(`http://localhost:5000/postbyid/${pid}`).then((res)=>{
+        axios.get(`https://postmng.onrender.com/postbyid/${pid}`).then((res)=>{
             setData(res.data)
         })
 
     },[])
     let edit=()=>{
-      axios.put("http://localhost:5000/updpost",{"_id":data._id,"title":data.title,"desc":data.desc,"cat":data.cat}).then((res)=>{
+      axios.put("https://postmng.onrender.com/updpost",{"_id":data._id,"title":data.title,"desc":data.desc,"cat":data.cat}).then((res)=>{
         navigate("/postbyme")
       })
 

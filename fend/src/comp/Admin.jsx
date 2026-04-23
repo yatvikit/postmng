@@ -6,13 +6,13 @@ const Admin = () => {
   let [data,setData]=useState([])
   let [f,setF]=useState(true)
   useEffect(()=>{
-    axios.get("http://localhost:5000/posts").then((res)=>{
+    axios.get("https://postmng.onrender.com/posts").then((res)=>{
       setData(res.data)
     })
 
   },[f])
   let del=(id)=>{
-    axios.delete(`http://localhost:5000/delpost/${id}`).then(()=>{
+    axios.delete(`https://postmng.onrender.com/delpost/${id}`).then(()=>{
 setF(!f)
     })
   }

@@ -7,7 +7,7 @@ const All = () => {
   let obj=useContext(Ct)
   let [f,setF]=useState(true)
   useEffect(()=>{
-    axios.get("http://localhost:5000/all").then((res)=>{
+    axios.get("https://postmng.onrender.com/all").then((res)=>{
       setData(res.data)
     })
 
@@ -19,7 +19,7 @@ const All = () => {
     }
     else
     {
-      axios.put("http://localhost:5000/like",{"_id":pid,"uid":obj.state.uid}).then(()=>{
+      axios.put("https://postmng.onrender.com/like",{"_id":pid,"uid":obj.state.uid}).then(()=>{
         setF(!f)
 
       })
@@ -33,7 +33,7 @@ const All = () => {
     }
     else
     {
-      axios.put("http://localhost:5000/dislike",{"_id":pid,"uid":obj.state.uid}).then(()=>{
+      axios.put("https://postmng.onrender.com/dislike",{"_id":pid,"uid":obj.state.uid}).then(()=>{
         setF(!f)
 
       })

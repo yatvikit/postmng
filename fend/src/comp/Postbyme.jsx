@@ -11,7 +11,7 @@ const Postbyme = () => {
     if(x!=undefined)
     {
       x=JSON.parse(x)
-    axios.get(`http://localhost:5000/getpostsbyuser/${x.uid}`).then((res)=>{
+    axios.get(`https://postmng.onrender.com/getpostsbyuser/${x.uid}`).then((res)=>{
 setData(res.data)
     })
     }

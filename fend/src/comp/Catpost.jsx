@@ -6,7 +6,7 @@ const Catpost = () => {
   let [data,setData]=useState([])
   let {cat}=useParams()
   useEffect(()=>{
-    axios.get(`http://localhost:5000/postbycat/${cat}`).then((res)=>{
+    axios.get(`https://postmng.onrender.com/postbycat/${cat}`).then((res)=>{
       setData(res.data)
     })
 

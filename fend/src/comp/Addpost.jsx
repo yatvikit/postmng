@@ -13,7 +13,7 @@ const Addpost = () => {
   let add=()=>{
     let x=Cookies.get("login")
     x=JSON.parse(x)
-    axios.post("http://localhost:5000/addpost",{...data,"uid":x.uid,"name":x.name}).then((res)=>{
+    axios.post("https://postmng.onrender.com/addpost",{...data,"uid":x.uid,"name":x.name}).then((res)=>{
 setMsg(res.data.msg)
 setData({"title":"","desc":"","cat":""})
     })
